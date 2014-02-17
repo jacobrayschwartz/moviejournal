@@ -1,0 +1,545 @@
+/**************************************************************/
+/******************* CORNERSTONE FRAMEWORK ********************/
+/*******************   by Corey Sizemore   ********************/
+/*******************     version 2.0       ********************/
+/**************************************************************/
+
+
+
+
+/**************************************************************/
+/************    BASIC BROWSER SYLING RESET      **************/
+/************    Eric Meyer's Reset CSS v2.0     **************/
+/************        http://cssreset.com         **************/
+/**************************************************************/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p, 
+blockquote, 
+pre,
+a, 
+abbr, 
+acronym, 
+address, 
+big, 
+cite, 
+code,
+del, 
+dfn, 
+em, 
+img, 
+ins, 
+kbd, 
+q, 
+s, 
+samp,
+small, 
+strike, 
+strong, 
+sub, 
+sup, 
+tt, 
+var,
+b, 
+u, 
+i, 
+center,
+dl, 
+dt, 
+dd, 
+ol, 
+ul, 
+li,
+fieldset, 
+form, 
+label, 
+legend,
+table, 
+caption, 
+tbody, 
+tfoot, 
+thead, 
+tr, 
+th, 
+td,
+article, 
+aside, 
+canvas, 
+details, 
+embed, 
+figure, 
+figcaption, 
+footer, 
+header, 
+hgroup, 
+menu, 
+nav, 
+output, 
+ruby, 
+section, 
+summary,
+time, 
+mark, 
+audio, 
+video {	
+	margin: 0;	
+	padding: 0;	
+	border: 0;	
+	font-size: 100%;	
+	font: inherit;	
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, 
+aside, 
+details, 
+figcaption, 
+figure, 
+footer, 
+header, 
+hgroup, 
+menu, 
+nav, 
+section {	
+	display: block;
+}
+
+body {	
+	line-height: 1;
+}
+
+ol, 
+ul {	
+	list-style: none;
+}
+
+blockquote, 
+q {	
+	quotes: none;
+}
+
+blockquote:before, 
+blockquote:after,
+q:before, 
+q:after {	
+	content: '';	
+	content: none;
+}
+
+table {	
+	border-collapse: collapse;	
+	border-spacing: 0;
+}
+
+
+/**************************************************************/
+/*************     RESPONSIVE GRID SYSTEM        **************/
+/**************************************************************/
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.row {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+.col_12,
+.col_11,
+.col_10,
+.col_9,
+.col_8,
+.col_7,
+.col_6,
+.col_5,
+.col_4,
+.col_3,
+.col_2,
+.col_1 {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+.col_12 {
+	width: 100%;
+}
+
+.col_11 {
+	width: 91.6666666666666666%;
+}
+
+.col_10 {
+	width: 83.3333333333333333%;
+}
+
+.col_9 {
+	width: 75%;
+}
+
+.col_8 {
+	width: 66.6666666666666666%;
+}
+
+.col_7 {
+	width: 58.3333333333333333%;
+}
+
+.col_6 {
+	width: 50%;
+}
+
+.col_5 {
+	width: 41.6666666666666666%;
+}
+
+.col_4 {
+	width: 33.3333333333333333%;
+}
+
+.col_3 {
+	width: 25%;
+}
+
+.col_2 {
+	width: 16.6666666666666666%;
+}
+
+.col_1 {
+	width: 08.3333333333333333%;
+}
+
+.gutters .col_11 > div,
+.gutters .col_10 > div,
+.gutters .col_9 > div,
+.gutters .col_8 > div,
+.gutters .col_7 > div,
+.gutters .col_6 > div,
+.gutters .col_5 > div,
+.gutters .col_4 > div,
+.gutters .col_3 > div,
+.gutters .col_2 > div,
+.gutters .col_1 > div,
+.gutters .col_11 > section,
+.gutters .col_10 > section,
+.gutters .col_9 > section,
+.gutters .col_8 > section,
+.gutters .col_7 > section,
+.gutters .col_6 > section,
+.gutters .col_5 > section,
+.gutters .col_4 > section,
+.gutters .col_3 > section,
+.gutters .col_2 > section,
+.gutters .col_1 > section,
+.gutters .col_11 > aside,
+.gutters .col_10 > aside,
+.gutters .col_9 > aside,
+.gutters .col_8 > aside,
+.gutters .col_7 > aside,
+.gutters .col_6 > aside,
+.gutters .col_5 > aside,
+.gutters .col_4 > aside,
+.gutters .col_3 > aside,
+.gutters .col_2 > aside,
+.gutters .col_1 > aside,
+.gutters .col_11 > p,
+.gutters .col_10 > p,
+.gutters .col_9 > p,
+.gutters .col_8 > p,
+.gutters .col_7 > p,
+.gutters .col_6 > p,
+.gutters .col_5 > p,
+.gutters .col_4 > p,
+.gutters .col_3 > p,
+.gutters .col_2 > p,
+.gutters .col_1 > p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.gutters .first > div,
+.gutters .first > section,
+.gutters .first > aside,
+.gutters .first > p {
+	margin-left: 0;
+}
+
+.gutters .last > div,
+.gutters .last > section,
+.gutters .last > aside,
+.gutters .last > p {
+	margin-right: 0;
+}
+
+.container:after,
+.row:after,
+.col_12:after,
+.col_11:after,
+.col_10:after,
+.col_9:after,
+.col_8:after,
+.col_7:after,
+.col_6:after,
+.col_5:after,
+.col_4:after,
+.col_3:after,
+.col_2:after,
+.col_1:after,
+section:after,
+div:after,
+aside:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+
+
+/**************************************************************/
+/******************** MEDIAQUERY RESPONSIVE *******************/
+/**************************************************************
+
+Using mediaquery's this will make the site respond at 3 different
+screen widths:
+
+980px +
+768px - 979px
+480px - 767px
+0px - 479px
+
+*/
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+	.container {
+		width: 768px;
+	}
+
+}
+
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+	.container {
+		width: 100%;
+	}
+
+	.col_12,
+	.col_11,
+	.col_10,
+	.col_9,
+	.col_8,
+	.col_7,
+	.col_6,
+	.col_5,
+	.col_4,
+	.col_3,
+	.col_2,
+	.col_1 {
+		float: none;
+		width: 100%;
+	}
+	
+	.col_11.hor {
+		float: left;
+		width: 91.6666666666666666%;
+	}
+	
+	.col_10.hor {
+		float: left;
+		width: 83.3333333333333333%;
+	}
+	
+	.col_9.hor {
+		float: left;
+		width: 75%;
+	}
+	
+	.col_8.hor {
+		float: left;
+		width: 66.6666666666666666%;
+	}
+	
+	.col_7.hor {
+		float: left;
+		width: 58.3333333333333333%;
+	}
+	
+	.col_6.hor {
+		float: left;
+		width: 50%;
+	}
+	
+	.col_5.hor {
+		float: left;
+		width: 41.6666666666666666%;
+	}
+	
+	.col_4.hor {
+		float: left;
+		width: 33.3333333333333333%;
+	}
+	
+	.col_3.hor {
+		float: left;
+		width: 25%;
+	}
+	
+	.col_2.hor {
+		float: left;
+		width: 16.6666666666666666%;
+	}
+	
+	.col_1.hor {
+		float: left;
+		width: 08.3333333333333333%;
+	}
+
+	.gutters .col_12 > div,
+	.gutters .col_12 > section,
+	.gutters .col_12 > aside,
+	.gutters .col_12 > p {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.gutters .first > div,
+	.gutters .first > section,
+	.gutters .first > aside,
+	.gutters .first > p {
+		margin-left: 10px;
+	}
+	
+	.gutters .last > div,
+	.gutters .last > section,
+	.gutters .last > aside,
+	.gutters .last > p {
+		margin-right: 10px;
+	}
+
+}
+
+@media (min-width: 0px) and (max-width: 479px) {
+
+	.container {
+		width: 100%;
+	}
+
+	.col_12,
+	.col_11,
+	.col_10,
+	.col_9,
+	.col_8,
+	.col_7,
+	.col_6,
+	.col_5,
+	.col_4,
+	.col_3,
+	.col_2,
+	.col_1 {
+		float: none;
+		width: 100%;
+	}
+	
+	.col_11.hor {
+		float: left;
+		width: 91.6666666666666666%;
+	}
+	
+	.col_10.hor {
+		float: left;
+		width: 83.3333333333333333%;
+	}
+	
+	.col_9.hor {
+		float: left;
+		width: 75%;
+	}
+	
+	.col_8.hor {
+		float: left;
+		width: 66.6666666666666666%;
+	}
+	
+	.col_7.hor {
+		float: left;
+		width: 58.3333333333333333%;
+	}
+	
+	.col_6.hor {
+		float: left;
+		width: 50%;
+	}
+	
+	.col_5.hor {
+		float: left;
+		width: 41.6666666666666666%;
+	}
+	
+	.col_4.hor {
+		float: left;
+		width: 33.3333333333333333%;
+	}
+	
+	.col_3.hor {
+		float: left;
+		width: 25%;
+	}
+	
+	.col_2.hor {
+		float: left;
+		width: 16.6666666666666666%;
+	}
+	
+	.col_1.hor {
+		float: left;
+		width: 08.3333333333333333%;
+	}
+	
+	.gutters .col_12 > div,
+	.gutters .col_12 > section,
+	.gutters .col_12 > aside,
+	.gutters .col_12 > p {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.gutters .first > div,
+	.gutters .first > section,
+	.gutters .first > aside,
+	.gutters .first > p {
+		margin-left: 10px;
+	}
+	
+	.gutters .last > div,
+	.gutters .last > section,
+	.gutters .last > aside,
+	.gutters .last > p {
+		margin-right: 10px;
+	}
+
+}

@@ -67,7 +67,7 @@
 						<input type="text" name="username" />
 						<label name="password">Password:</label>
 						<input type="password" name="password" />
-						<input type="submit" value="Submit">
+						<input type="submit" value="Login">
 					</form>
 				</div>
 			</div>

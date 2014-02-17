@@ -15,6 +15,7 @@ body {
 }
 
 label {
+	color: #666;
 	display: block;
 	font-weight: 200;
 	padding-bottom: 5px;
@@ -22,6 +23,8 @@ label {
 
 input[type="text"],
 input[type="password"] {
+	background: #f1f1f1;
+	border: none;
 	width: 98%;
 	height: 30px;
 	font-size: 1.25em;
@@ -29,6 +32,8 @@ input[type="password"] {
 }
 
 input[type="submit"] {
+	width: 100px;
+	font-family: "helvetica neue";
 	background: #222;
 	color: #fff;
 	border: none;
@@ -38,11 +43,80 @@ input[type="submit"] {
 	cursor: pointer;
 	border-radius: 5px;
 	margin-top: 10px;
+	font-size: 1em;
+	font-weight: 200;
+	letter-spacing: .05em;
+	-webkit-transition: background .3s linear;
+	-moz-transition: background .3s linear;
+	transition: background .3s linear;
+}
+
+input[type="submit"]:hover {
+	background: #555;
+	font-weight: 200;
 }
 
 .errormessage p {
 	color: red;
 	padding: 20px 0;
 	text-align: center;
+	font-weight: 200;
+}
+
+.logout_button:link,
+.logout_button:visited {
+	width: 100px;
+	font-family: "helvetica neue";
+	background: #fff;
+	color: #222;
+	border: none;
+	padding: 10px 20px;
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 1em;
+	font-weight: 200;
+	letter-spacing: .05em;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	transition: all .3s linear;
+	text-decoration: none;
+	text-align: center;
+}
+
+.logout_button:hover,
+.logout_button:active {
+	color: #fff;
+	background: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+	
+}
+@media (min-width: 480px) and (max-width: 767px) {
+	
+	.login_box {
+		width: calc(100% - 60px);
+	}
+
+}
+@media (min-width: 0px) and (max-width: 479px) {
+
+	.login_box {
+		width: calc(100% - 60px);
+	}
+
 }
 

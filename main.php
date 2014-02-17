@@ -11,6 +11,9 @@
 
 <div class="container">
 	<div class="row gutters">
+		<a href="logout.php" class="logout_button" alt="logout">Logout</a>
+	</div>
+	<div class="row gutters">
 		<div class="col_12">
 			<section>
 				stuff goes here!

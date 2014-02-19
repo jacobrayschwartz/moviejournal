@@ -60,7 +60,7 @@
 				<div class="login_box">
 					<div class="errormessage">
 						<?php
-							if ($_SESSION['errormessage'] != null) {
+							if (isset($_SESSION['errormessage']) && ($_SESSION['errormessage'] != null || $_SESSION['errormessage'] != '')) {
 								echo '<p>';
 								echo $_SESSION['errormessage'];
 								echo '</p>';

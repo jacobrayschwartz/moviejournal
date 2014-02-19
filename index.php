@@ -2,18 +2,24 @@
 	ob_start();
 	session_start();
 	
+	$errormessage = '';
+	
 	if (isset($_POST['submitted'])) {
 	
-		$_SESSION['errormessage'] = null;
+		$_SESSION['errormessage'] = '';
  
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		
 		include_once('./php/dbinfo.php');
 		
-		$query = "select username, userpass from users where username = '$username'";
-		$result = mysqli_query($db,$query);
 		
+		if($stmt = $db->prepare("select username, userpass from users where username = ?")) {
+			$stmt->bind_param("s",$username);
+			$stmt->execute();
+			$result = $stmt->get_result();
+		}
+			
 		if(mysqli_num_rows($result) == 0)
 		{
 			$_SESSION['errormessage'] = 'We\'re sorry, no user found.';

@@ -1,18 +1,13 @@
-create Database thejaco2_moviejournal;
-
-CREATE USER 'journal'@'localhost' IDENTIFIED BY 'cscd378';
-GRANT ALL ON thejaco2_moviejournal.* to 'journal'@'localhost';
-
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 15, 2014 at 07:25 PM
--- Server version: 5.5.36
--- PHP Version: 5.2.17
+-- Host: 127.0.0.1
+-- Generation Time: Feb 20, 2014 at 07:00 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -24,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `thejaco2_moviejournal`
 --
+CREATE DATABASE IF NOT EXISTS `thejaco2_moviejournal` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `thejaco2_moviejournal`;
 
 -- --------------------------------------------------------
 
@@ -31,8 +28,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `cast`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`cast`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`cast` (
+DROP TABLE IF EXISTS `cast`;
+CREATE TABLE IF NOT EXISTS `cast` (
   `movieid` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
@@ -44,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`cast` (
 -- Dumping data for table `cast`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`cast` (`movieid`, `firstname`, `lastname`, `role`) VALUES
+INSERT INTO `cast` (`movieid`, `firstname`, `lastname`, `role`) VALUES
 (1, 'Tony Leung', 'Ka Fai', 'Shatuo Zhong'),
 (1, 'Chao', 'Deng', 'Pei Donglai'),
 (1, 'Carina', 'Lau', 'Empress Wu Zetian'),
@@ -63,8 +60,8 @@ INSERT INTO `thejaco2_moviejournal`.`cast` (`movieid`, `firstname`, `lastname`, 
 -- Table structure for table `crew`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`crew`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`crew` (
+DROP TABLE IF EXISTS `crew`;
+CREATE TABLE IF NOT EXISTS `crew` (
   `movieid` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
@@ -76,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`crew` (
 -- Dumping data for table `crew`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`crew` (`movieid`, `firstname`, `lastname`, `position`) VALUES
+INSERT INTO `crew` (`movieid`, `firstname`, `lastname`, `position`) VALUES
 (3, 'Sha', 'Bin', 'Art Department'),
 (2, 'Bruce', 'Law', 'Special Effects'),
 (1, 'Yanming', 'Jiang', 'Visual Effects Supervisor'),
@@ -88,8 +85,8 @@ INSERT INTO `thejaco2_moviejournal`.`crew` (`movieid`, `firstname`, `lastname`, 
 -- Table structure for table `movies`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`movies`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`movies` (
+DROP TABLE IF EXISTS `movies`;
+CREATE TABLE IF NOT EXISTS `movies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `overview` varchar(255) DEFAULT NULL,
@@ -97,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`movies` (
   `director` varchar(60) DEFAULT NULL,
   `run_length` int(11) DEFAULT NULL,
   `misc_facts` int(11) DEFAULT NULL,
+  `comments` varchar(255) DEFAULT NULL COMMENT 'User comments on the movie',
   UNIQUE KEY `uk_movies` (`id`),
   KEY `primary_movies` (`name`,`date_released`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
@@ -105,10 +103,10 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`movies` (
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`movies` (`id`, `name`, `overview`, `date_released`, `director`, `run_length`, `misc_facts`) VALUES
-(1, 'Detective Dee: Mystery of the Phantom Flame', 'An exiled detective is recruited to solve a series of mysterious deaths that threaten to delay the inauguration of Empress Wu.', '2010-09-30', 'Hark Tsui', 119, NULL),
-(2, 'The Legend of Drunken Master', 'A young martial artist is caught between respecting his pacifist father''s wishes or stopping a group of disrespectful foreigners from stealing precious artifacts.', '2000-10-20', 'Chia-Liang Liu', 102, NULL),
-(3, 'Kung Fu Hustle', 'In Shanghai, China in the 1940s, a wannabe gangster aspires to join the notorious "Axe Gang" while residents of a housing complex exhibit extraordinary powers in defending their turf.', '2005-04-22', 'Stephen Chow', 99, NULL);
+INSERT INTO `movies` (`id`, `name`, `overview`, `date_released`, `director`, `run_length`, `misc_facts`, `comments`) VALUES
+(1, 'Detective Dee: Mystery of the Phantom Flame', 'An exiled detective is recruited to solve a series of mysterious deaths that threaten to delay the inauguration of Empress Wu.', '2010-09-30', 'Hark Tsui', 119, NULL, NULL),
+(2, 'The Legend of Drunken Master', 'A young martial artist is caught between respecting his pacifist father''s wishes or stopping a group of disrespectful foreigners from stealing precious artifacts.', '2000-10-20', 'Chia-Liang Liu', 102, NULL, NULL),
+(3, 'Kung Fu Hustle', 'In Shanghai, China in the 1940s, a wannabe gangster aspires to join the notorious "Axe Gang" while residents of a housing complex exhibit extraordinary powers in defending their turf.', '2005-04-22', 'Stephen Chow', 99, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,8 +114,8 @@ INSERT INTO `thejaco2_moviejournal`.`movies` (`id`, `name`, `overview`, `date_re
 -- Table structure for table `producers`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`producers`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`producers` (
+DROP TABLE IF EXISTS `producers`;
+CREATE TABLE IF NOT EXISTS `producers` (
   `movieid` int(11) NOT NULL,
   `firstname` varchar(30) DEFAULT NULL,
   `lastname` varchar(30) DEFAULT NULL,
@@ -128,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`producers` (
 -- Dumping data for table `producers`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`producers` (`movieid`, `firstname`, `lastname`) VALUES
+INSERT INTO `producers` (`movieid`, `firstname`, `lastname`) VALUES
 (1, 'Felice', 'Bee'),
 (1, 'Peggy', 'Lee'),
 (1, 'Nansun', 'Shi'),
@@ -144,8 +142,8 @@ INSERT INTO `thejaco2_moviejournal`.`producers` (`movieid`, `firstname`, `lastna
 -- Table structure for table `production_companies`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`production_companies`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`production_companies` (
+DROP TABLE IF EXISTS `production_companies`;
+CREATE TABLE IF NOT EXISTS `production_companies` (
   `movieid` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   KEY `idx_production_companies` (`movieid`)
@@ -155,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`production_companies` (
 -- Dumping data for table `production_companies`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`production_companies` (`movieid`, `name`) VALUES
+INSERT INTO `production_companies` (`movieid`, `name`) VALUES
 (1, 'China Film Co-Production Corporation'),
 (1, 'Film Workshop'),
 (3, 'Columbia Pictures Film Production Asia'),
@@ -167,12 +165,13 @@ INSERT INTO `thejaco2_moviejournal`.`production_companies` (`movieid`, `name`) V
 -- Table structure for table `usermovies`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`usermovies`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`usermovies` (
+DROP TABLE IF EXISTS `usermovies`;
+CREATE TABLE IF NOT EXISTS `usermovies` (
   `userid` int(11) NOT NULL,
   `movieid` int(11) NOT NULL,
   `watched` tinyint(1) NOT NULL,
   PRIMARY KEY (`userid`,`movieid`,`watched`),
+  UNIQUE KEY `movieid` (`movieid`),
   KEY `idx_usermovies` (`userid`),
   KEY `idx_usermovies_0` (`movieid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -181,10 +180,9 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`usermovies` (
 -- Dumping data for table `usermovies`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`usermovies` (`userid`, `movieid`, `watched`) VALUES
+INSERT INTO `usermovies` (`userid`, `movieid`, `watched`) VALUES
 (1, 1, 1),
 (1, 2, 0),
-(2, 2, 1),
 (2, 3, 0);
 
 -- --------------------------------------------------------
@@ -193,8 +191,8 @@ INSERT INTO `thejaco2_moviejournal`.`usermovies` (`userid`, `movieid`, `watched`
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`users`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `userpass` varchar(30) NOT NULL,
@@ -206,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`users` (`id`, `username`, `userpass`) VALUES
+INSERT INTO `users` (`id`, `username`, `userpass`) VALUES
 (1, 'user1', 'password'),
 (2, 'user2', 'password');
 
@@ -216,8 +214,8 @@ INSERT INTO `thejaco2_moviejournal`.`users` (`id`, `username`, `userpass`) VALUE
 -- Table structure for table `writers`
 --
 
-DROP TABLE IF EXISTS `thejaco2_moviejournal`.`writers`;
-CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`writers` (
+DROP TABLE IF EXISTS `writers`;
+CREATE TABLE IF NOT EXISTS `writers` (
   `movieid` int(11) NOT NULL,
   `firstname` varchar(30) DEFAULT NULL,
   `lastname` varchar(30) DEFAULT NULL,
@@ -228,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `thejaco2_moviejournal`.`writers` (
 -- Dumping data for table `writers`
 --
 
-INSERT INTO `thejaco2_moviejournal`.`writers` (`movieid`, `firstname`, `lastname`) VALUES
+INSERT INTO `writers` (`movieid`, `firstname`, `lastname`) VALUES
 (3, 'Stephan', 'Chow'),
 (3, 'Man Keung', 'Chan'),
 (3, 'Xin', 'Huo'),
@@ -247,39 +245,39 @@ INSERT INTO `thejaco2_moviejournal`.`writers` (`movieid`, `firstname`, `lastname
 --
 -- Constraints for table `cast`
 --
-ALTER TABLE `thejaco2_moviejournal`.`cast`
-  ADD CONSTRAINT `fk_cast_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `cast`
+  ADD CONSTRAINT `fk_cast_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `crew`
 --
-ALTER TABLE `thejaco2_moviejournal`.`crew`
-  ADD CONSTRAINT `fk_crew_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `crew`
+  ADD CONSTRAINT `fk_crew_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `producers`
 --
-ALTER TABLE `thejaco2_moviejournal`.`producers`
-  ADD CONSTRAINT `fk_producers_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `producers`
+  ADD CONSTRAINT `fk_producers_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `production_companies`
 --
-ALTER TABLE `thejaco2_moviejournal`.`production_companies`
-  ADD CONSTRAINT `fk_production_companies_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `production_companies`
+  ADD CONSTRAINT `fk_production_companies_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `usermovies`
 --
-ALTER TABLE `thejaco2_moviejournal`.`usermovies`
-  ADD CONSTRAINT `fk_usermovies_users` FOREIGN KEY (`userid`) REFERENCES `thejaco2_moviejournal`.`users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_usermovies_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `usermovies`
+  ADD CONSTRAINT `fk_usermovies_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_usermovies_users` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `writers`
 --
-ALTER TABLE `thejaco2_moviejournal`.`writers`
-  ADD CONSTRAINT `fk_writers_movies` FOREIGN KEY (`movieid`) REFERENCES `thejaco2_moviejournal`.`movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `writers`
+  ADD CONSTRAINT `fk_writers_movies` FOREIGN KEY (`movieid`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

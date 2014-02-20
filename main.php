@@ -1,13 +1,12 @@
 <?php
 	session_start();
 	
-	if(!isset($_SESSION['username'])) {
+	if(!isset($_SESSION['user_id'])) {
 		header("location: index.php");
 		exit();
 	}
 	include("./php/dbinfo.php");
-	$user=$_SESSION['username'];
-	$pass=$_SESSION['password'];
+	$user_id = $_SESSION['user_id'];
 ?>
 
 <?php include('header.php'); ?>

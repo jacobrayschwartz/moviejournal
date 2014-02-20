@@ -43,6 +43,7 @@
 		else {
 			session_regenerate_id();
 			$_SESSION['user_id'] = $user_id;
+			$_SESSION['username'] = $user_name;
 			session_write_close();
 			header('Location: main.php');
 			$_SESSION['errormessage'] = null;

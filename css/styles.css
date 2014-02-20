@@ -1,7 +1,63 @@
 body {
 	background: #222;
+	color: #fff;
 	font-family: "helvetica neue";
 	font-weight: 100;
+}
+
+header {
+	background: #666;
+	height: 60px;
+}
+
+header h1 {
+	font-size: 1.4em;
+	font-weight: 100;
+	line-height: 60px;
+}
+
+header .container {
+	position: relative;
+}
+
+.user_info {
+	background: #999;
+	width: 280px;
+	float: right;
+	z-index: 1;
+	border-radius: 0 0 10px 10px;
+}
+
+.username {
+	font-size: 1.3em;
+	padding: 20px;
+	display: block;
+}
+
+.user_info ul {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.user_info ul li {
+	display: inline-block;
+}
+
+.user_info ul li span {
+	padding-right: 5px;
+}
+
+.user_info ul li a:link,
+.user_info ul li a:visited {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.3em;
+	padding: 10px;
+}
+
+.user_info ul li a:hover,
+.user_info ul li a:active {
+	color: #333;
 }
 
 .login_box {
@@ -71,7 +127,6 @@ input[type="submit"]:hover {
 	color: #222;
 	border: none;
 	padding: 10px 20px;
-	margin: 0 auto;
 	display: block;
 	cursor: pointer;
 	border-radius: 5px;
@@ -119,4 +174,58 @@ input[type="submit"]:hover {
 	}
 
 }
+
+
+
+
+
+
+
+@font-face {
+	font-family: 'moviediary';
+	src:url('../fonts/moviediary.eot?-875pom');
+	src:url('../fonts/moviediary.eot?#iefix-875pom') format('embedded-opentype'),
+		url('../fonts/moviediary.woff?-875pom') format('woff'),
+		url('../fonts/moviediary.ttf?-875pom') format('truetype'),
+		url('../fonts/moviediary.svg?-875pom#moviediary') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'moviediary';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-logout:before {
+	content: "\e600";
+}
+.icon-plus:before {
+	content: "\e601";
+}
+.icon-pencil:before {
+	content: "\e602";
+}
+.icon-list:before {
+	content: "\e603";
+}
+.icon-list2:before {
+	content: "\e604";
+}
+.icon-camera:before {
+	content: "\e605";
+}
+.icon-users:before {
+	content: "\e606";
+}
+
 

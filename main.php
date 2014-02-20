@@ -19,21 +19,24 @@
 	<div class="row gutters">
 		<div class="col_12">
 			<section>
-				<select name="members" id="members" size="25" style="width=800;height=500">
+				
 					<?php
-						$usermovies="SELECT name from movies where id in(SELECT movieid from usermovies where userid in(SELECT id FROM `users` WHERE username='$user'))";
+						$usermovies="SELECT * from movies where id in(SELECT movieid from usermovies where userid in(SELECT id FROM `users` WHERE username='$user'))";
 						$result = $db->query($usermovies);
 						while($row=$result->fetch_assoc())
 						{
+							echo "<form name='rowform' action='add_edit_delete.php' method='post'>";
 							$name= $row['name'];
-							$id=$row['id'];
-							echo "<option value='$id'>";
-							echo "'$name'";
-							echo "</option>";
+							$id= $row['id'];
+							echo "<input type= 'hidden' size='30' id = 'movieid' name='movieid' value='".$row['id']."'>";
+							echo "<input type='submit' id='deletebutton' name='deletebutton' value='Delete' style='left: 10;color: black;background-color:white'>;";
+							echo "<input type='submit' id='edit' name='edit' value='Edit' style='left: 10;color: black;background-color:white'>;";
+							echo "$name";
+							echo"</form>";
+							echo "-------------------------------------------------------------------------------";
 						}
-						
 					?>
-				</select>
+					<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">;
 			</section>
 		</div>
 	</div>

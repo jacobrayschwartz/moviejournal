@@ -14,7 +14,7 @@
 		include_once('./php/dbinfo.php');
 		
 		
-		if($stmt = $db->prepare("select username, userpass from users where username = ?")) {
+		if($stmt = $db->prepare("select users.username, users.userpass, users.id from users where username = ?")) {
 			$stmt->bind_param("s",$username);
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -27,6 +27,7 @@
 	    }
 		
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$user_id = $row['id'];
 			$user_name = $row['username'];
 			$user_pass = $row['userpass'];
 		}
@@ -41,8 +42,7 @@
 		}
 		else {
 			session_regenerate_id();
-			$_SESSION['username'] = $user_name;
-			$_SESSION['password'] = $user_pass;
+			$_SESSION['user_id'] = $user_id;
 			session_write_close();
 			header('Location: main.php');
 			$_SESSION['errormessage'] = null;

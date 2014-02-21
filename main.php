@@ -7,7 +7,6 @@
 	}
 	include("./php/dbinfo.php");
 	$user=$_SESSION['username'];
-	$pass=$_SESSION['password'];
 ?>
 
 <?php include('header.php'); ?>
@@ -36,8 +35,8 @@
 							echo "-------------------------------------------------------------------------------";
 						}
 					?>
-					<form>
-					<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">;
+					<form name='addform' action='add.php' method='post'>
+					<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">
 					</form>
 			</section>
 		</div>

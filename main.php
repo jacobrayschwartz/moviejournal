@@ -7,34 +7,15 @@
 	}
 	include("./php/dbinfo.php");
 	$user=$_SESSION['username'];
-	//$pass=$_SESSION['password'];
+	$pass=$_SESSION['password'];
 ?>
 
 <?php include('header.php'); ?>
 
-<header>
-	<div class="container">
-		<div class="row gutters">
-			<div class="col_6 first">
-				<section>
-					<h1>Movie Diary Application</h1>
-				</section>
-			</div>
-			<div class="col_6 last">
-				<section class="user_info">
-					<span class="username">Welcome, <?php echo $_SESSION['username']; ?></span>
-					<ul>
-						<li><a href="" alt=""><span class="icon icon-plus"></span>Add</a></li>
-						<li><a href="" alt=""><span class="icon icon-pencil"></span>Edit</a></li>
-						<li><a href="logout.php" alt="logout"><span class="icon icon-logout"></span>Logout</a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
-	</div>
-</header>
-
 <div class="container">
+	<div class="row gutters">
+		<a href="logout.php" class="logout_button" alt="logout">Logout</a>
+	</div>
 	<div class="row gutters">
 		<div class="col_12">
 			<section>

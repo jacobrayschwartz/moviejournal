@@ -1,6 +1,10 @@
 <?php
 	session_start();
 	include_once("./header.php");
+	include("./php/dbinfo.php");
+	
+	$_SESSION['user_id'] = 1;
+	$_POST['movieid'] = 1;
 	
 	$editing = (isset($_POST['editing'])) ? TRUE : FALSE; //boolean
 	$userid; //int
@@ -22,6 +26,7 @@
 	if(!isset($_SESSION['user_id'])){
 		header("Location: index.php");
 		echo "Hmmm... something went wrong.";
+		exit();
 	}
 	
 	$userid = $_SESSION['user_id'];
@@ -33,19 +38,35 @@
 		if($resultSet->num_rows !== 1){
 			header("Location: main.php");
 			echo "Bad number of rows...";
+			exit();
 		}
 	}
+
+	include_once("./htmlgen/getData.php");
 	
 	
 	//Generating the various elements inside of variables
+	
 	include_once("./htmlgen/display.php");
 	include_once("./htmlgen/edit.php");
 	
 ?>
 
-<div id="generalInfo">
-	<?php  ?>
+
+
+<div id='titleBlock'>
+		<?php 
+			if(isset($_POST['editTitleBlock'])){
+				editTitleBlock($movieid, $name, $date_released, $run_length, $overview);
+			}
+			else{
+				displayTitleBlock($movieid, $name, $date_released, $run_length, $overview);
+			}
+		?>
 </div>
+
+
+
 
 <?php
 	include_once("./footer.php");

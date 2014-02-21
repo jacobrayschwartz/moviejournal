@@ -7,7 +7,7 @@
 	}
 	include("./php/dbinfo.php");
 	$user=$_SESSION['username'];
-	$pass=$_SESSION['password'];
+	//$pass=$_SESSION['password'];
 ?>
 
 <?php include('header.php'); ?>

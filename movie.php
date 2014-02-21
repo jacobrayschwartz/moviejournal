@@ -70,10 +70,10 @@
 <div id='titleBlock'>
 		<?php 
 			if(isset($_POST['editTitleBlock'])){
-				editTitleBlock($movieid, $name, $date_released, $run_length, $overview);
+				editTitleBlock($movieid, $name, $date_released, $run_length, $overview, $director);
 			}
 			else{
-				displayTitleBlock($movieid, $name, $date_released, $run_length, $overview);
+				displayTitleBlock($movieid, $name, $date_released, $run_length, $overview, $director);
 			}
 		?>
 </div>

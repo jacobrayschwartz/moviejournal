@@ -26,6 +26,7 @@
 		$date_released = (isset($_POST['date_released'])) ? date("Y-m-d", strtotime($_POST['date_released'])) : '';
 		$run_length = (isset($_POST['run_length'])) ? $_POST['run_length'] : '';
 		$overview = (isset($_POST['overview'])) ? htmlentities($_POST['overview']) : '';
+		$director = (isset($_POST['director'])) ? $_POST['director'] : '';
 
 		
 		if($name !== '' && $name != null){
@@ -33,11 +34,12 @@
 						SET name=?,
 							date_released=?,
 							run_length=?,
-							overview=?
+							overview=?,
+							director=?
 						WHERE
 							movies.id=?
 							");
-			$query->bind_param('ssisi',$name,$date_released,$run_length,$overview,$movieid);
+			$query->bind_param('ssissi',$name,$date_released,$run_length,$overview,$director,$movieid);
 			
 			$query->execute(); 
 		}

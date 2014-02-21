@@ -1,11 +1,12 @@
 <?php
 	//Getting the title info
-	function displayTitleBlock($movieid, $name, $date_released ,$run_length, $overview)
+	function displayTitleBlock($movieid, $name, $date_released ,$run_length, $overview, $director)
 	{
 		$formattedDate = date("m/d/Y", strtotime($date_released));
 		echo "\n
 		<span id='name'><h1>$name</h1></span><br/>\n
 		<span id='date_released'>Released On $formattedDate</span> <span id='run_time'>Run Length $run_length Minutes</span></br>\n
+		<span id='director'>Directed by: $director</span><br/>\n
 		<span id='overview'>$overview</span><br/><br/>\n\n
 		
 		<form id='titleBlockEditForm' method='POST' action='movie.php'>\n
@@ -14,6 +15,10 @@
 		</form>\n\n\n
 		
 		";
+	}
+	
+	function displayWriters($movieid, $writers){
+		
 	}
 ?>
 

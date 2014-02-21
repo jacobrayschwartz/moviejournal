@@ -3,8 +3,8 @@
 	include_once("./header.php");
 	include("./php/dbinfo.php");
 	
-	$_SESSION['user_id'] = 1;
-	$_POST['movieid'] = 1;
+	//$_SESSION['user_id'] = 1;
+	//$_POST['movieid'] = 1;
 	
 	$editing = (isset($_POST['editing'])) ? TRUE : FALSE; //boolean
 	$userid; //int
@@ -32,14 +32,27 @@
 	$userid = $_SESSION['user_id'];
 	
 	//Now checking to see if the user has the movie in question (If we were passed a movie)
-	if(isset($_POST['movieid'])){
-		$movieid=$_POST['movieid'];
+	if(!isset($_SESSION['movieid']) && isset($_POST['movieid'])){
+		$_SESSION['movieid'] = $_POST['movieid'];
+	}
+	
+	
+	$movieid = $_SESSION['movieid'];
+	
+	if(isset($_SESSION['movieid'])){
+		$movieid=$_SESSION['movieid'];
 		$resultSet = $db->query("SELECT * FROM usermovies WHERE userid=$userid AND movieid=$movieid");
 		if($resultSet->num_rows !== 1){
 			header("Location: main.php");
-			echo "Bad number of rows...";
+			echo "User & Movie Missmatch";
 			exit();
 		}
+	}
+	
+	else{
+		header("Location: index.php");
+		echo "Hmmm... something went wrong.";
+		exit();
 	}
 
 	include_once("./htmlgen/getData.php");

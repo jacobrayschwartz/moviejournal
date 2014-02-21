@@ -7,6 +7,7 @@
 	}
 	include("./php/dbinfo.php");
 	$user=$_SESSION['username'];
+	echo"Test";
 ?>
 
 <?php include('header.php'); ?>

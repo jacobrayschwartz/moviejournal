@@ -25,7 +25,7 @@
 						$result = $db->query($usermovies);
 						while($row=$result->fetch_assoc())
 						{
-							echo "<form name='rowform' action='movie.php' method='post'>";
+							echo "<form name='rowform' action='view_delete.php' method='post'>";
 							$name= $row['name'];
 							$id= $row['id'];
 							echo "<input type= 'hidden' size='30' id = 'movieid' name='movieid' value='".$row['id']."'>";

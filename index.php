@@ -31,8 +31,11 @@
 		$user_name = $dusername;
 		$user_pass = $duserpass;
 		
-		
-		if ($username != $user_name) {
+		if ($username == null && $password == null) {
+			$_SESSION['errormessage'] = 'We\'re sorry, no user found.';
+			header('Location: index.php');
+		}
+		else if ($username != $user_name) {
 			$_SESSION['errormessage'] = 'We\'re sorry, no user found.';
 			header('Location: index.php');
 		}

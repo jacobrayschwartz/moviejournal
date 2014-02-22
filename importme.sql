@@ -205,8 +205,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `userpass`) VALUES
-(1, 'user1', 'password'),
-(2, 'user2', 'password');
+(1, 'brian', 'pass123'),
+(2, 'stephen', 'pass123');
 
 -- --------------------------------------------------------
 

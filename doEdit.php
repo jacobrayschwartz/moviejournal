@@ -47,6 +47,54 @@
 		exit();
 	}
 	
+	
+	//============================================================= Writers ======================================================================
+	//Deleting a writer
+	else if(isset($_POST['deleteWriter'])){
+		$movieid = $_SESSION['movieid'];
+		$fname = $_POST['writerFirstName'];
+		$lname = $_POST['writerLastName'];
+		
+		$query = $db->prepare(
+							"DELETE FROM writers WHERE movieid=? AND firstname=? AND lastname=?;"
+							);
+		$query->bind_param('iss',$movieid,$fname,$lname);
+		$query->execute();
+		
+		header("Location: movie.php");
+		exit();
+	}
+	
+	//Editing a writer
+	else if(isset($_POST['writerSubmit'])){
+		$movieid = $_SESSION['movieid'];
+		$newfname = $_POST['writerFirstName'];
+		$newlname = $_POST['writerLastName'];
+		$oldfname = $_POST['oldfname'];
+		$oldlname = $_POST['oldlname'];
+		$query = $db->prepare("UPDATE writers SET firstname=?, lastname=? WHERE movieid=? AND firstname=? AND lastname=?");
+		$query->bind_param('ssiss', $newfname, $newlname, $movieid, $oldfname, $oldlname);
+		$query->execute();
+		
+		header("Location: movie.php");
+		exit();
+	}
+	
+	//Adding a writer
+	else if(isset($_POST['submitAddWriter'])){
+		$movieid = $_SESSION['movieid'];
+		$fname = $_POST['addWriterFirstName'];
+		$lname = $_POST['addWriterLastName'];
+		
+		$query = $db->prepare("INSERT INTO writers SET movieid=?, firstname=?, lastname=? ;");
+		$query->bind_param('iss', $movieid, $fname, $lname);
+		$query->execute();
+		
+		header("Location: movie.php");
+		exit();
+		
+	}
+	
 	else{
 		die("Well, crap...");
 	}

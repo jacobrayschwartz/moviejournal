@@ -78,6 +78,32 @@
 		?>
 </div>
 
+<div id='writersBlock'>
+	<h2>Writers</h2><br/>
+	<?php
+		if(isset($_POST['editWriter'])){
+			$editfname = $_POST['writerFirstName'];
+			$editlname = $_POST['writerLastName'];
+			editWriters($movieid, $writers, $editfname, $editlname);
+		}
+		else{
+			displayWriters($movieid, $writers);
+		}
+		
+		if(isset($_POST['addWriter'])){
+			echo "<br/>
+					<form id='addWriterForm' method='POST' action='doEdit.php'>
+					<input type='text' length='30' id='addWriterFirstName' name='addWriterFirstName' placeholder='First Name' />
+					<input type='text' length='30' id='addWriterLastName' name='addWriterLastName' placeholder='Last Name' />
+					<input type='submit' id='submitAddWriter' name='submitAddWriter' value='Submit' />
+					<input type='submit' id='cancel' name='cancel' value='Cancel' />
+					</form>";
+		}
+		else{
+			echo "<br/><form id='addWritterButton' method='POST' action='movie.php'><input type='submit' id='addWriter' name='addWriter' value='Add Writter' /></form>";
+		}
+	?>
+</div>
 
 
 

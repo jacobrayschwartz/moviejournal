@@ -17,5 +17,37 @@
 		
 		";
 	}
+	
+	function editWriters($movieid, $writers, $editfname, $editlname){
+		for($i = 0; $i < sizeof($writers); $i ++){
+			$curfname = $writers[$i]['firstname'];
+			$curlname = $writers[$i]['lastname'];
+			
+			if($curfname === $editfname && $curlname === $editlname){
+				echo "
+					<form id='editWriter' method='POST' action='doEdit.php'>
+					<input type='hidden' id='oldfname' name='oldfname' value='$editfname' />
+					<input type='hidden' id='oldlname' name='oldlname' value='$editlname' />
+					<input type='text' length='30' id='writerFirstName' name='writerFirstName' value='$editfname' placeholder='First Name'/>
+					<input type='text' length='30' id='writerLastName' name='writerLastName' value='$editlname' placeholder='Last Name'/>
+					<input type='submit' name='writerSubmit' id='writerSubmit' value='Submit' />
+					<input type='submit' name='cancel' id='cancel' value='Cancel'/>
+					</form>
+					";
+			}
+			else{
+				echo "
+					<span id='writersFirstName$i'>$curfname</span> <span id='writersLastName$i'>$curlname</span>
+					<form id='changeWriter$i' method='POST' action='doEdit.php'>
+					<input type='hidden' id='writerFirstName' name='writerFirstName' value='$curfname'/>
+					<input type='hidden' id='writerLastName' name='writerLastName' value='$curlname'/>
+					<input type='submit' id='editWriter' name='editWriter' value='Edit' />
+					<input type='hidden' id='writerFirstName' name='writerFirstName' value='$fname'/>
+					<input type='hidden' id='writerLastName' name='writerLastName' value='$lname'/>
+					<input type='submit' id='deleteWriter' name='deleteWriter' value='Delete'></form><br/>\n
+					";
+			}
+		}
+	}
 ?>
 

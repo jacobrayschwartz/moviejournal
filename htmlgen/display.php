@@ -10,7 +10,6 @@
 		<span id='overview'>$overview</span><br/><br/>\n\n
 		
 		<form id='titleBlockEditForm' method='POST' action='movie.php'>\n
-			<input type='hidden' name='movieid' id='movieid' value='$movieid' />\n
 			<input type='submit' name='editTitleBlock' id='editTitleBlock' value='Edit' />\n
 		</form>\n\n\n
 		
@@ -18,7 +17,24 @@
 	}
 	
 	function displayWriters($movieid, $writers){
-		
+		for($i = 0; $i < sizeof($writers); $i ++){
+			$fname = $writers[$i]['firstname'];
+			$lname = $writers[$i]['lastname'];
+			echo "
+				<span id='writersFirstName$i'>$fname</span> <span id='writersLastName$i'>$lname</span>
+				<form id='changeWriter$i' method='POST' action='movie.php'>
+				<input type='hidden' id='writerFirstName' name='writerFirstName' value='$fname'/>
+				<input type='hidden' id='writerLastName' name='writerLastName' value='$lname'/>
+				<input type='submit' id='editWriter' name='editWriter' value='Edit' /></form>
+				<form id='deleteWriter' method='POST' action='doEdit.php'>
+				<input type='hidden' id='writerFirstName' name='writerFirstName' value='$fname'/>
+				<input type='hidden' id='writerLastName' name='writerLastName' value='$lname'/>
+				<input type='submit' id='deleteWriter' name='deleteWriter' value='Delete'></form><br/>\n
+				";
+		}
 	}
+	
+	
+	
 ?>
 

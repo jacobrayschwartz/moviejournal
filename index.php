@@ -17,20 +17,20 @@
 		if($stmt = $db->prepare("select users.username, users.userpass, users.id from users where username = ?")) {
 			$stmt->bind_param("s",$username);
 			$stmt->execute();
-			$result = $stmt->get_result();
+			$stmt->bind_result($dusername, $duserpass, $did);
 		}
-			
-		if(mysqli_num_rows($result) == 0)
+		
+		
+		if($stmt->fetch() == FALSE)
 		{
 			$_SESSION['errormessage'] = 'We\'re sorry, no user found.';
 	    	header('Location: index.php');
 	    }
 		
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-			$user_id = $row['id'];
-			$user_name = $row['username'];
-			$user_pass = $row['userpass'];
-		}
+		$user_id = $did;
+		$user_name = $dusername;
+		$user_pass = $duserpass;
+		
 		
 		if ($username != $user_name) {
 			$_SESSION['errormessage'] = 'We\'re sorry, no user found.';

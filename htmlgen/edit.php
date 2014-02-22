@@ -122,7 +122,7 @@
 			}
 			else{
 				echo "
-					<span id='castFirstName$i'>$curfname</span> <span id='castLastName$i'>$curlname</span> <span id='castRole$i'>$currole</span>
+					<span id='castFirstName$i'>$curfname</span> <span id='castLastName$i'>$curlname</span> / <span id='castRole$i'>$currole</span>
 					<br/>\n
 					";
 			}
@@ -154,7 +154,7 @@
 			}
 			else{
 				echo "
-					<span id='crewFirstName$i'>$curfname</span> <span id='crewLastName$i'>$curlname</span> <span id='crewPosition$i'>$curposition</span>
+					<span id='crewFirstName$i'>$curfname</span> <span id='crewLastName$i'>$curlname</span> / <span id='crewPosition$i'>$curposition</span>
 					<br/>\n
 					";
 			}

@@ -111,7 +111,7 @@
 			$role = $cast[$i]['role'];
 			echo "
 				<div class='col_10'>
-				<span id='castFirstName$i'>$fname</span> <span id='castLastName$i'>$lname</span> <span id='castRole$i'>$role</span>
+				<span id='castFirstName$i'>$fname</span> <span id='castLastName$i'>$lname</span> / <span id='castRole$i'>$role</span>
 				</div>
 				<div class='col_1 hor'>
 				<form id='changeCast$i' method='POST' action='movie.php'>

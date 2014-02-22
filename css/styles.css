@@ -75,6 +75,13 @@ label {
 	padding-bottom: 5px;
 }
 
+input,
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+   	appearance: none;
+}
+
 .index input[type="text"],
 .index input[type="password"] {
 	background: #f1f1f1;
@@ -378,7 +385,7 @@ h2 {
 		background: #999;
 		margin-left: 10px;
 		margin-top: 10px;
-		width: 46%;
+		width: 44%;
 	}
 	
 	#add {

@@ -1,4 +1,5 @@
 <?php
+	date_default_timezone_set('America/Los_Angeles');
 	session_start();
 	//header("Location: movie.php");
 	if(!isset($_SESSION['movieid']) || !isset($_SESSION['user_id'])){

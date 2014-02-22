@@ -1,7 +1,3 @@
-<?php 
-	date_default_timezone_set('America/Los_Angeles');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +7,12 @@
 -->
 
 	<meta charset="utf-8" />
-	<title></title>
+	<title>Movie Diary Application</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Awesome movie diary application.">
     <meta name="keywords" content="">
     <meta name="copyright" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Ralph Parkison, Jake Schwartz, Corey Sizemore">
 	
 <!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/cornerstone_v2.0.css" />

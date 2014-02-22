@@ -54,7 +54,27 @@
 ?>
 
 <?php include('header.php'); ?>
-
+<header>
+	<div class="container">
+		<div class="row gutters">
+			<div class="col_4 first">
+				<section>
+					<h1> Movie Diary Application </h1>
+				</section>
+			</div>
+			<div class="col_8 last">
+				<aside class="user_info">
+					<span id="user_image" class="icon icon-users"></span>
+					<span class="username">Log In Below</span>
+					<ul>
+						<li></li>
+					</ul>
+				</aside>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="main index">
 	<div class="container">
 		<div class="row gutters">
 			<div class="col_12">
@@ -80,5 +100,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 <?php include('footer.php'); ?>

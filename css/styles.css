@@ -7,13 +7,13 @@ body {
 
 header {
 	background: #666;
-	height: 60px;
+	height: 70px;
 }
 
 header h1 {
-	font-size: 1.4em;
-	font-weight: 100;
-	line-height: 60px;
+	font-size: 1.5em;
+	font-weight: 200;
+	line-height: 70px;
 }
 
 header .container {
@@ -28,19 +28,15 @@ header .container {
 	border-radius: 0 0 10px 10px;
 }
 
-.username {
-	font-size: 1.3em;
-	padding: 20px;
-	display: block;
+.user_info ul li {
+	display: inline-block;
+	width: 49.2%;
+	text-align: center;
 }
 
 .user_info ul {
-	padding-top: 10px;
-	padding-bottom: 20px;
-}
-
-.user_info ul li {
-	display: inline-block;
+	background: #e1e1e1;
+	border-radius: 0 0 10px 10px;
 }
 
 .user_info ul li span {
@@ -49,10 +45,12 @@ header .container {
 
 .user_info ul li a:link,
 .user_info ul li a:visited {
-	color: #fff;
+	color: #00a3ff;
 	text-decoration: none;
-	font-size: 1.3em;
-	padding: 10px;
+	font-size: 1.1em;
+	padding: 10px 0px;
+	font-weight: 200;
+	display: block;
 }
 
 .user_info ul li a:hover,
@@ -77,17 +75,55 @@ label {
 	padding-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+.index input[type="text"],
+.index input[type="password"] {
 	background: #f1f1f1;
 	border: none;
 	width: 98%;
 	height: 30px;
-	font-size: 1.25em;
+	font-size: 1.15em;
 	margin-bottom: 10px;
 }
 
-input[type="submit"] {
+.movie input[type="text"],
+.movie input[type="password"] {
+	background: #f1f1f1;
+	border: none;
+	width: 98%;
+	height: 30px;
+	font-size: 1.15em;
+	margin-bottom: 10px;
+}
+
+.movie textarea {
+	background: #f1f1f1;
+	border: none;
+	width: 98%;
+	height: 80px;
+	font-size: 1.15em;
+	margin-bottom: 10px;
+}
+
+.movie .gray input[type="text"],
+.movie .gray input[type="password"] {
+	background: #fff;
+	border: none;
+	width: 98%;
+	height: 30px;
+	font-size: 1.15em;
+	margin: 5px 0;
+}
+
+.movie .gray textarea {
+	background: #fff;
+	border: none;
+	width: 98%;
+	height: 80px;
+	font-size: 1.15em;
+	margin-bottom: 10px;
+}
+
+.index input[type="submit"] {
 	width: 100px;
 	font-family: "helvetica neue";
 	background: #222;
@@ -107,8 +143,75 @@ input[type="submit"] {
 	transition: background .3s linear;
 }
 
-input[type="submit"]:hover {
+.index input[type="submit"]:hover {
 	background: #555;
+	font-weight: 200;
+}
+
+.mainlist input[type="submit"] {
+	font-family: "helvetica neue";
+	background: #666;
+	color: #fff;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: .9em;
+	padding: 5px 10px;
+	font-weight: 200;
+	letter-spacing: .05em;
+	-webkit-transition: background .3s linear;
+	-moz-transition: background .3s linear;
+	transition: background .3s linear;
+}
+
+.mainlist input[type="submit"]:hover {
+	background: #333;
+	font-weight: 200;
+}
+
+.movie input[type="submit"] {
+	font-family: "helvetica neue";
+	background: #666;
+	color: #fff;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: .9em;
+	padding: 5px 10px;
+	font-weight: 200;
+	letter-spacing: .05em;
+	-webkit-transition: background .3s linear;
+	-moz-transition: background .3s linear;
+	transition: background .3s linear;
+}
+
+.movie input[type="submit"]:hover {
+	background: #333;
+	font-weight: 200;
+}
+
+#add {
+	background: #00a3ff;
+	color: #fff;
+	font-family: "helvetica neue";
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: .9em;
+	padding: 5px 10px;
+	margin-top: 20px;
+	font-weight: 200;
+	letter-spacing: .05em;
+	-webkit-transition: background .3s linear;
+	-moz-transition: background .3s linear;
+	transition: background .3s linear;
+}
+
+#add:hover {
+	background: #333;
 	font-weight: 200;
 }
 
@@ -119,35 +222,95 @@ input[type="submit"]:hover {
 	font-weight: 200;
 }
 
-.logout_button:link,
-.logout_button:visited {
-	width: 100px;
-	font-family: "helvetica neue";
-	background: #fff;
-	color: #222;
-	border: none;
-	padding: 10px 20px;
-	display: block;
-	cursor: pointer;
-	border-radius: 5px;
-	margin-top: 10px;
-	font-size: 1em;
-	font-weight: 200;
-	letter-spacing: .05em;
-	-webkit-transition: all .3s linear;
-	-moz-transition: all .3s linear;
-	transition: all .3s linear;
-	text-decoration: none;
+#user_image {
+	background: #e1e1e1;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
 	text-align: center;
+	font-size: 2em;
+	margin: 10px;
 }
 
-.logout_button:hover,
-.logout_button:active {
-	color: #fff;
-	background: #555;
+.username {
+	font-size: 1.2em;
+	padding: 0px;
+	display: inline-block;
+	float: right;
+	padding-top: 25px;
+	text-align: left;
+	width: 200px;
 }
 
+h2 {
+	font-size: 1.4em;
+	padding-bottom: 30px;
+}
 
+.movie_table {
+	padding: 20px 20px 20px 20px;
+	border-radius: 0 0 10px 10px;
+	color: #000;
+	background: #FFF;
+	font-weight: 200;
+}
+
+.movie .movie_table {
+	padding: 20px 20px 20px 20px;
+	border-radius: 0px;
+	color: #000;
+	background: #FFF;
+	font-weight: 200;
+}
+
+.movie .row:last-child .movie_table {
+	border-radius: 0 0 10px 10px;
+}
+
+.movie .data {
+	padding: 5px;
+}
+
+.movie_table .display {
+	padding: 10px 0;
+}
+
+.movie_table .moviename {
+	padding: 5px 10px 0 10px;
+	display: block;
+}
+
+.movie_table .display:nth-child(even) {
+	background: #e1e1e1;
+}
+
+.movie .display.gray {
+	background: #e1e1e1;
+	padding: 10px;
+}
+
+.movie .display h2 {
+	padding: 0;
+}
+
+.num_movies {
+	padding: 20px 0;
+}
+
+.blue {
+	color: #00a3ff;
+}
+
+.bold {
+	font-weight: 400;
+}
+
+.movie .movie_table .display h1 {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-size: 2em;
+}
 
 
 
@@ -165,12 +328,82 @@ input[type="submit"]:hover {
 	.login_box {
 		width: calc(100% - 60px);
 	}
+	
+	.container:first-child .row:first-child .movie_table {
+		padding-top: 130px;
+	}
+	
+	.gutters .last > aside.user_info {
+		width: 100%;
+		margin: 0;
+	}
+	
+	.mainlist input[type="submit"] {
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 46%;
+	}
+	
+	#add {
+		width: 95%;
+	}
+	
+	.col_1.hor {
+		width: 50%;
+	}
+	
+	.movie input[type="submit"] {
+		width: 95%;
+		
+	}
+	
 
 }
 @media (min-width: 0px) and (max-width: 479px) {
 
 	.login_box {
 		width: calc(100% - 60px);
+	}
+	
+	.container:first-child .row:first-child .movie_table {
+		padding-top: 130px;
+	}
+	
+	.gutters .last > aside.user_info {
+		width: 100%;
+		margin: 0;
+	}
+	
+	.mainlist input[type="submit"] {
+		background: #999;
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 46%;
+	}
+	
+	#add {
+		width: 95%;
+	}
+	
+	.col_1.hor {
+		width: 50%;
+	}
+	
+	.movie input[type="submit"] {
+		width: 95%;
+		background: #999;
+	}
+	
+	#editTitleBlock,
+	#addWriter,
+	#addProducer,
+	#addProduction_company,
+	#addCast,
+	#addCrew,
+	#comments input[type="submit"] {
+		background: #666;
+		margin-top: 20px;
+		width: 97.5%;
 	}
 
 }

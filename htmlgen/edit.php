@@ -8,10 +8,11 @@
 		<form id='editTitleBlock' action='doEdit.php' method='post'>
 			<input type='text' length='100' name='name' id='name' value='$name' placeholder='Title'/><br/>\n
 			Released On <input type='text' length='12' id='date_released' name='date_released' value='$formattedDate' placeholder='mm/dd/yyyy'> 
-			Run Length <input type='text' length='5' name='run_length' id='run_length' value='$run_length' placeholder='Run Length' /> Minutes<br/>\n
+			Run Length <input type='text' length='5' name='run_length' id='run_length' value='$run_length' placeholder='Run Length(Minutes)' /><br />\n
 			Directed by <input type='text' length='60' name='director' id='director' value='$director' placeholder='Director' /><br/>
+			Overview
 			<textarea rows='4' cols='60' maxlength='254' id='overview' name='overview' placeholder='Overview'>$overview</textarea><br/>
-			Seen: <input type='checkbox' id='watched' name='watched' value='1' $checked />
+			Seen: <input type='checkbox' id='watched' name='watched' value='1' $checked /><br/><br/>
 			<input type='submit' name='titleBlockSubmit' id='titleBlockSubmit' value='Submit' />
 			<input type='submit' name='cancel' id='cancel' value='Cancel'/>
 		</form>\n\n\n

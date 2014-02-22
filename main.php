@@ -43,4 +43,19 @@
 	</div>
 </div>
 
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function confirmDelete(){
+		confirm("Are you sure you want to delete " + info + "?");
+		return false;
+	}
+</script>
 <?php include('footer.php'); ?>

@@ -4,6 +4,7 @@
 	//$movieid; //int
 	//$name; //varchar
 	//$overview; //varchar
+	//$watched; //boolean
 	//$date_released; //date
 	//$director; //varchar
 	//$run_length; //int (minutes)
@@ -33,6 +34,15 @@
 	$misc_facts = $row['misc_facts'];
 	$comments = $row['comments'];
 	
+	//==========================================Getting watched
+	$resultSet = $db->query("SELECT * FROM usermovies where movieid=$movieid");
+	if(!$resultSet || $resultSet->num_rows != 1){
+		die("Bad query for watched");
+	}
+	$row = $resultSet->fetch_assoc();
+	$watched = $row['watched'];
+	
+	
 	//==========================================Getting the writers
 	$resultSet = $db->query("SELECT * FROM writers WHERE writers.movieid=$movieid");
 	if(!$resultSet){
@@ -56,7 +66,7 @@
 	}
 	
 	while($row = $resultSet->fetch_assoc()){
-		$producers[] = $row['name'];
+		$production_companies[] = $row['name'];
 	}
 	
 	
@@ -74,8 +84,6 @@
 							"lastname" => $row['lastname']
 							);
 	}
-	
-	
 	
 	//==========================================Getting the crew
 	$resultSet = $db->query("SELECT * FROM crew WHERE crew.movieid=$movieid");

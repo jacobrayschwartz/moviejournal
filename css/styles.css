@@ -75,7 +75,7 @@ label {
 	padding-bottom: 5px;
 }
 
-input,
+input:not([type='checkbox']),
 textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;

@@ -35,44 +35,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	<div class="row gutters">
-		<div class="col_12">
-			<section>
-				
-					<?php
-						$usermovies="SELECT * from movies where id in(SELECT movieid from usermovies where userid in(SELECT id FROM `users` WHERE username='$user'))";
-						$result = $db->query($usermovies);
-						while($row=$result->fetch_assoc())
-						{
-							echo "<form name='rowform' action='view_delete.php' method='post'>";
-							$name= $row['name'];
-							$id= $row['id'];
-							echo "<input type= 'hidden' size='30' id = 'movieid' name='movieid' value='".$row['id']."'>";
-							echo "$name";
-							echo "<input type='submit' id='deletebutton' name='deletebutton' value='Delete' style='left: 10;color: black;background-color:white'>";
-							echo "<input type='submit' id='view' name='view' value='View' style='left: 10;color: black;background-color:white'>";
-							echo"</form>";
-							echo "-------------------------------------------------------------------------------";
-						}
-					?>
-					<form name='submitform' action='main.php' method='post'>
-					<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">
-					</form>
-					<?php
-						if(isset($_POST['add']))
-						{
-							echo "<form name='addform' action='add.php' method='post'>";
-							echo "TITLE";
-							echo "<input type='text' name='title' id='title' value=''> <br>";
-							echo "<input type='submit' id='submit' name='submit' value='Submit' style='left: 10;color: black;background-color:white'>";
-							echo "<input type='submit' id='cancel' name='cancel' value='CANCEL' style='left: 10;color: black;background-color:white'>";
-							echo "</form>";
-						
-						}
-					?>
-			</section>
-=======
 </header>
 <div class="main mainlist">
 	<div class="container">
@@ -114,12 +76,23 @@
 								echo "</div>";
 							}
 						?>
-						<form name='addform' action='add.php' method='post'>
-							<input type='submit' id='add' name='add' value='+ Add Movie' size='100'>
+						<form name='submitform' action='main.php' method='post'>
+						<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">
 						</form>
+						<?php
+							if(isset($_POST['add']))
+							{
+								echo "<form name='addform' action='add.php' method='post'>";
+								echo "TITLE";
+								echo "<input type='text' name='title' id='title' value=''> <br>";
+								echo "<input type='submit' id='submit' name='submit' value='Submit' style='left: 10;color: black;background-color:white'>";
+								echo "<input type='submit' id='cancel' name='cancel' value='CANCEL' style='left: 10;color: black;background-color:white'>";
+								echo "</form>";
+							
+							}
+						?>
 				</section>
 			</div>
->>>>>>> 01d605538e5b132fe64d13574b578d1f1c664814
 		</div>
 	</div>
 </div>

@@ -69,8 +69,10 @@
 								echo "<input type= 'hidden' size='30' id = 'movieid' name='movieid' value='".$row['id']."'>";
 								echo "<span class='moviename'>$name</span>";
 								echo "</div><div class='col_2'>";
-								echo "<input type='submit' id='view' name='view' value='View' >";
-								echo "<input type='submit' id='deletebutton' name='deletebutton' value='Delete' >";
+								echo "<input type='submit' id='view' name='view' value='View' ></form>";
+								echo "<form id='delform' method='post' action='view_delete.php' onsubmit='return confirmDelete()'>
+									<input type= 'hidden' size='30' id = 'movieid' name='movieid' value='".$row['id']."'>
+									<input type='submit' id='deletebutton' name='deletebutton' value='Delete' ></form>";
 								echo "</div>";
 								echo "</form>";
 								echo "</div>";
@@ -97,8 +99,8 @@
 
 <script type="text/javascript">
 	function confirmDelete(){
-		confirm("Are you sure you want to delete " + info + "?");
-		return false;
+		return confirm("Are you sure you want to delete?");
+		//return false; 
 	}
 </script>
 <?php include('footer.php'); ?>

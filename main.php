@@ -76,21 +76,10 @@
 								echo "</div>";
 							}
 						?>
-						<form name='submitform' action='main.php' method='post'>
-						<input type='submit' id='add' name='add' value='Add' size='100' style="left: 10;color: black;background-color:white">
+						<form name='submitform' action='add.php' method='post'>
+						<input type='hidden' id='title' name='title' value='New Movie' />
+						<input type='submit' id='submit' name='submit' value='Add' size='100' style="left: 10;color: black;background-color:white">
 						</form>
-						<?php
-							if(isset($_POST['add']))
-							{
-								echo "<form name='addform' action='add.php' method='post'>";
-								echo "TITLE";
-								echo "<input type='text' name='title' id='title' value=''> <br>";
-								echo "<input type='submit' id='submit' name='submit' value='Submit' style='left: 10;color: black;background-color:white'>";
-								echo "<input type='submit' id='cancel' name='cancel' value='CANCEL' style='left: 10;color: black;background-color:white'>";
-								echo "</form>";
-							
-							}
-						?>
 				</section>
 			</div>
 		</div>

@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `date_released` date DEFAULT NULL,
   `director` varchar(60) DEFAULT NULL,
   `run_length` int(11) DEFAULT NULL,
-  `misc_facts` int(11) DEFAULT NULL,
+  `misc_facts` varchar(255) DEFAULT NULL,
   `comments` varchar(255) DEFAULT NULL COMMENT 'User comments on the movie',
   UNIQUE KEY `uk_movies` (`id`),
   KEY `primary_movies` (`name`,`date_released`)
@@ -205,8 +205,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `userpass`) VALUES
-(1, 'user1', 'password'),
-(2, 'user2', 'password');
+(1, 'brian', 'pass123'),
+(2, 'stephen', 'pass123');
 
 -- --------------------------------------------------------
 

@@ -29,6 +29,7 @@
 				$result=$stmt->get_result();
 				header('Location: movie.php');
 			}
+			header('Location: main.php');
 	}
 	else if(isset($_POST['cancel'])){
 	

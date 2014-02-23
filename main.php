@@ -80,7 +80,7 @@
 						?>
 						<form name='submitform' action='add.php' method='post'>
 						<input type='hidden' id='title' name='title' value='New Movie' />
-						<input type='submit' id='submit' name='submit' value='Add' size='100' style="left: 10;color: black;background-color:white">
+						<input type='submit' id='add' name='submit' value='+ Add Movie' size='100'>
 						</form>
 				</section>
 			</div>
